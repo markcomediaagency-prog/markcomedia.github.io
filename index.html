@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markco Media Agency — Digital Marketing & Staffing</title>
+<meta name="description" content="Markco Media Agency: social media marketing, performance marketing, branding, content, lead generation, website design — and Markco Staffing, connecting trained talent with growing companies.">
+<meta property="og:title" content="Markco Media Agency">
+<meta property="og:description" content="We grow brands and build teams. Digital marketing, lead generation, website design and staffing.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a10; --bg2:#13111b; --card:#17141f; --line:rgba(255,255,255,.09);
+  --text:#f4f1fa; --muted:#a59fb5;
+  --pink:#ffd23f; --orange:#ffb000; --violet:#7b5cff;
+  --teal:#3dc8ff; --lime:#8f7bff; --sky:#3dc8ff;
+  --media:linear-gradient(120deg,var(--pink),var(--orange));
+  --staff:linear-gradient(120deg,var(--teal),var(--lime));
+  --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+h1,h2,h3,.display{font-family:Syne,sans-serif;line-height:1.02;letter-spacing:-.02em}
+.grad-media{background:var(--media);-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad-staff{background:var(--staff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.6rem;border-radius:999px;font-weight:700;font-size:.98rem;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;font-family:inherit}
+.btn:hover{transform:translateY(-3px)}
+.btn-media{background:var(--media);color:#111;box-shadow:0 12px 40px -10px rgba(255,210,63,.6)}
+.btn-staff{background:var(--staff);color:#0b0a10;box-shadow:0 12px 40px -10px rgba(61,200,255,.55)}
+.btn-ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn svg{width:18px;height:18px;transition:transform .25s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* background blobs + grain */
+.blobs{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.38;animation:float 18s ease-in-out infinite}
+.b1{width:520px;height:520px;background:var(--pink);top:-140px;left:-120px}
+.b2{width:460px;height:460px;background:var(--violet);top:30%;right:-160px;animation-delay:-6s}
+.b3{width:420px;height:420px;background:var(--teal);bottom:-180px;left:30%;animation-delay:-12s;opacity:.22}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,40px) scale(1.08)}66%{transform:translate(-40px,60px) scale(.95)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(11,10,16,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:Syne;font-weight:800;font-size:1.35rem;letter-spacing:.02em}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--media);display:grid;place-items:center;box-shadow:0 8px 24px -8px rgba(255,210,63,.7)}
+.logo-img{height:46px;width:auto;border-radius:12px;box-shadow:0 8px 28px -10px rgba(255,210,63,.7)}
+footer .logo-img{height:58px}
+.logo small{display:block;font-family:Manrope;font-weight:600;font-size:.62rem;letter-spacing:.32em;color:var(--muted);margin-top:2px}
+.nav-links{display:flex;gap:2.2rem;font-weight:600;font-size:.95rem}
+.nav-links a{color:var(--muted);transition:color .2s;position:relative}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--media);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:.75rem 1.3rem;font-size:.9rem}
+.burger{display:none;background:none;border:0;color:var(--text);cursor:pointer;width:44px;height:44px}
+.burger span{display:block;width:24px;height:2px;background:currentColor;margin:5px auto;transition:.3s}
+.mobile-menu{display:none}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+.hero-grid>*{min-width:0}
+.hero h1{font-size:clamp(2.1rem,6.2vw,5.4rem);font-weight:800;margin:1.3rem 0 1.5rem}
+.rotator{display:inline-block;position:relative;height:1.05em;overflow:hidden;vertical-align:bottom}
+.rotator span{display:block;animation:rot 10s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes rot{0%,16%{transform:translateY(0)}20%,36%{transform:translateY(-100%)}40%,56%{transform:translateY(-200%)}60%,76%{transform:translateY(-300%)}80%,96%{transform:translateY(-400%)}100%{transform:translateY(-500%)}}
+.hero p.lead{font-size:1.18rem;color:var(--muted);max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
+.badge-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.4rem}
+.badge{font-size:.82rem;font-weight:600;padding:.45rem .9rem;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted)}
+
+/* hero visual: two division cards */
+.hero-visual{position:relative;height:520px}
+.dcard{position:absolute;width:300px;padding:1.6rem;border-radius:26px;background:rgba(23,20,31,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(0,0,0,.8);transition:transform .5s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.dcard:hover{transform:translateY(-10px) rotate(0deg)!important;z-index:5}
+.dcard.m{top:10px;left:0;transform:rotate(-5deg)}
+.dcard.s{bottom:10px;right:0;transform:rotate(4deg)}
+.dcard .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .75rem;border-radius:999px;margin-bottom:1rem}
+.dcard.m .tag{background:rgba(255,210,63,.15);color:var(--pink)}
+.dcard.s .tag{background:rgba(61,200,255,.14);color:var(--teal)}
+.dcard h3{font-size:1.7rem;margin-bottom:.5rem}
+.dcard p{color:var(--muted);font-size:.93rem}
+.mini-chart{display:flex;align-items:flex-end;gap:7px;height:80px;margin-top:1.3rem}
+.mini-chart i{flex:1;border-radius:6px 6px 2px 2px;background:var(--media);opacity:.9;animation:grow 2.4s ease-in-out infinite alternate}
+.mini-chart i:nth-child(odd){animation-delay:-.8s}
+@keyframes grow{from{transform:scaleY(.55)}to{transform:scaleY(1)}}
+.mini-chart i{transform-origin:bottom}
+.people{display:flex;margin-top:1.3rem}
+.people span{width:44px;height:44px;border-radius:50%;border:3px solid #17141f;margin-left:-10px;display:grid;place-items:center;font-weight:800;font-size:.85rem;color:#0b0a10}
+.people span:first-child{margin-left:0}
+.match{display:flex;align-items:center;gap:.6rem;margin-top:1rem;font-size:.85rem;font-weight:700;color:var(--teal)}
+.match .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(61,200,255,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 12px rgba(61,200,255,0)}}
+.orb{position:absolute;top:50%;left:50%;width:230px;height:230px;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 0deg,var(--pink),var(--orange),var(--lime),var(--teal),var(--violet),var(--pink));filter:blur(2px);animation:spin 14s linear infinite;opacity:.85}
+.orb::after{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--bg)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.orb-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:Syne;font-weight:800;font-size:1.1rem;text-align:center;line-height:1.15;z-index:1}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);padding:1.3rem 0;overflow:hidden;background:rgba(255,255,255,.015);transform:rotate(-1.2deg);margin:1rem 0}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:marq 38s linear infinite}
+.marquee-track span{font-family:Syne;font-weight:700;font-size:clamp(1.4rem,3vw,2.3rem);white-space:nowrap;display:flex;align-items:center;gap:3rem}
+.marquee-track span::after{content:"✦";font-size:.7em;background:var(--media);-webkit-background-clip:text;background-clip:text;color:transparent}
+.marquee-track span:nth-child(even){-webkit-text-stroke:1px rgba(255,255,255,.55);color:transparent}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:120px 0;position:relative}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:3.5rem;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(1.9rem,4.6vw,3.7rem);font-weight:800;margin-top:1rem;max-width:760px}
+.sec-head p{color:var(--muted);max-width:400px;font-size:1.05rem}
+
+/* division switch */
+.divisions{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.division{position:relative;padding:2.6rem;border-radius:30px;overflow:hidden;border:1px solid var(--line);background:var(--card);min-height:360px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .4s,border-color .4s}
+.division:hover{transform:translateY(-6px)}
+.division.m:hover{border-color:rgba(255,210,63,.5)}
+.division.s:hover{border-color:rgba(61,200,255,.5)}
+.division::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;filter:blur(70px);opacity:.28;top:-160px;right:-120px;transition:opacity .4s}
+.division.m::before{background:var(--pink)}
+.division.s::before{background:var(--teal)}
+.division:hover::before{opacity:.5}
+.division .num{font-family:Syne;font-weight:800;font-size:.9rem;color:var(--muted);letter-spacing:.2em}
+.division h3{font-size:clamp(2rem,3.6vw,2.9rem);margin:1rem 0 .8rem}
+.division p{color:var(--muted);max-width:420px}
+.division .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.6rem 0}
+.division .chips span{font-size:.8rem;font-weight:600;padding:.4rem .8rem;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.division .go{display:inline-flex;align-items:center;gap:.6rem;font-weight:800}
+.division .go svg{width:20px;transition:transform .3s}
+.division:hover .go svg{transform:translateX(6px)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.svc{position:relative;padding:2rem;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .35s;isolation:isolate}
+.svc::after{content:"";position:absolute;inset:0;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(255,210,63,.16),transparent 40%);opacity:0;transition:opacity .3s;z-index:-1}
+.svc:hover{transform:translateY(-6px);border-color:rgba(255,210,63,.35)}
+.svc:hover::after{opacity:1}
+.svc .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(255,210,63,.18),rgba(255,176,0,.14));border:1px solid rgba(255,210,63,.25);margin-bottom:1.4rem}
+.svc .ic svg{width:26px;height:26px;stroke:var(--orange)}
+.svc h3{font-size:1.35rem;margin-bottom:.6rem}
+.svc p{color:var(--muted);font-size:.95rem}
+.svc .n{position:absolute;top:1.4rem;right:1.6rem;font-family:Syne;font-weight:800;color:rgba(255,255,255,.12);font-size:1.6rem}
+.svc.feature{grid-column:span 2;background:linear-gradient(135deg,#2a230a,#17140c 60%);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.svc.feature h3{font-size:2rem}
+.svc.wide{grid-column:span 3;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;background:linear-gradient(120deg,#1d180a,#17142a 70%)}
+.svc.wide .ic{margin-bottom:0;flex:none}
+.svc.wide .wl{display:flex;gap:1.4rem;align-items:center;max-width:720px}
+/* pricing */
+.pricing{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:1.2rem;align-items:stretch}
+.plan{position:relative;padding:2.4rem 2.1rem;border-radius:28px;border:1px solid var(--line);background:var(--card);display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+.plan:hover{transform:translateY(-6px);border-color:rgba(255,210,63,.4)}
+.plan.hot{background:linear-gradient(170deg,#2b2408,#15121c 65%);border:1.5px solid rgba(255,210,63,.65);box-shadow:0 30px 90px -40px rgba(255,210,63,.55);transform:translateY(-14px)}
+.plan.hot:hover{transform:translateY(-20px)}
+.plan .ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--media);color:#111;font-weight:800;font-size:.72rem;letter-spacing:.16em;padding:.45rem 1rem;border-radius:999px;white-space:nowrap}
+.plan .pname{font-family:Syne;font-weight:700;font-size:1.3rem}
+.plan .pdesc{color:var(--muted);font-size:.92rem;margin:.4rem 0 1.4rem}
+.plan .price{font-family:Syne;font-weight:800;font-size:3.4rem;line-height:1;display:flex;align-items:flex-start;gap:.2rem}
+.plan .price sup{font-size:1.4rem;margin-top:.5rem}
+.plan .per{color:var(--muted);font-size:.9rem;font-weight:600;margin:.5rem 0 1.6rem}
+.plan ul{list-style:none;display:grid;gap:.75rem;margin-bottom:2rem;flex:1}
+.plan li{display:flex;gap:.7rem;font-size:.95rem}
+.plan li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:rgba(255,210,63,.15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd23f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+.plan .btn{justify-content:center}
+.price-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:2.6rem}
+.funnel{display:flex;flex-direction:column;gap:8px;align-items:center}
+.funnel div{height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#111}
+.funnel div:nth-child(1){width:100%;background:rgba(255,210,63,.35)}
+.funnel div:nth-child(2){width:80%;background:rgba(255,210,63,.55)}
+.funnel div:nth-child(3){width:60%;background:rgba(255,190,30,.85)}
+.funnel div:nth-child(4){width:40%;background:var(--media)}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;counter-reset:step}
+.step{padding:1.8rem 1.4rem;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.02);position:relative;transition:background .3s}
+.step:hover{background:rgba(255,255,255,.05)}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:Syne;font-weight:800;font-size:2.6rem;display:block;margin-bottom:1rem;background:var(--media);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step h4{font-family:Syne;font-size:1.15rem;margin-bottom:.4rem}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* staffing */
+#staffing{background:linear-gradient(180deg,transparent,rgba(61,200,255,.045) 20%,rgba(143,123,255,.03) 80%,transparent)}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:1rem;margin-bottom:4rem}
+.flow-node{padding:2rem;border-radius:26px;border:1px solid var(--line);background:var(--card);text-align:center;position:relative}
+.flow-node.center{background:linear-gradient(160deg,rgba(61,200,255,.16),rgba(143,123,255,.08));border-color:rgba(61,200,255,.4)}
+.flow-node .ic{width:68px;height:68px;margin:0 auto 1.2rem;border-radius:20px;display:grid;place-items:center;background:rgba(61,200,255,.12);border:1px solid rgba(61,200,255,.3)}
+.flow-node .ic svg{width:32px;height:32px;stroke:var(--teal)}
+.flow-node h4{font-family:Syne;font-size:1.3rem;margin-bottom:.5rem}
+.flow-node p{color:var(--muted);font-size:.92rem}
+.flow-node .lbl{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);margin-bottom:.8rem}
+.flow-arrow{display:grid;place-items:center;width:60px}
+.flow-arrow svg{width:60px;height:24px}
+.flow-arrow path{stroke:var(--teal);stroke-dasharray:6 6;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-12}}
+.audience{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.aud{padding:2.2rem;border-radius:var(--radius);border:1px solid var(--line);background:var(--card);transition:transform .35s,border-color .35s}
+.aud:hover{transform:translateY(-6px);border-color:rgba(61,200,255,.45)}
+.aud .who{font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.aud h3{font-size:1.6rem;margin:.7rem 0 1.1rem}
+.aud ul{list-style:none;display:grid;gap:.7rem}
+.aud li{display:flex;gap:.7rem;color:var(--muted);font-size:.95rem}
+.aud li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:rgba(61,200,255,.15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233dc8ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+.roles{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:3.5rem;justify-content:center}
+.roles span{padding:.7rem 1.2rem;border-radius:999px;border:1px solid rgba(61,200,255,.25);background:rgba(61,200,255,.05);font-weight:600;font-size:.92rem;transition:background .25s,color .25s}
+.roles span:hover{background:var(--staff);color:#0b0a10}
+.roles-title{text-align:center;margin-top:4rem;color:var(--muted);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.why-item{padding:2rem;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.why-item .big{font-family:Syne;font-weight:800;font-size:2.4rem;margin-bottom:.6rem}
+.why-item h4{font-size:1.1rem;margin-bottom:.4rem}
+.why-item p{color:var(--muted);font-size:.92rem}
+
+/* cta + contact */
+.cta-box{position:relative;border-radius:36px;padding:4.5rem;overflow:hidden;background:linear-gradient(135deg,#211c08,#110f16 50%,#0a1620);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
+.cta-box::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:var(--pink);filter:blur(140px);opacity:.25;top:-300px;left:-200px}
+.cta-box::after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:var(--teal);filter:blur(140px);opacity:.18;bottom:-280px;right:-160px}
+.cta-box > *{position:relative;z-index:1}
+.cta-box h2{font-size:clamp(1.9rem,4.4vw,3.6rem);font-weight:800;margin:1rem 0 1.2rem}
+.cta-box p{color:var(--muted);font-size:1.05rem}
+.contact-lines{margin-top:2rem;display:grid;gap:.9rem}
+.contact-lines a{display:flex;align-items:center;gap:.9rem;font-weight:600}
+.contact-lines .ci{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.contact-lines svg{width:20px;height:20px}
+form{display:grid;gap:1rem}
+.seg{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;padding:.8rem .6rem;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:700;font-size:.88rem;transition:.25s}
+.seg input:checked + span{background:var(--media);border-color:transparent;color:#111}
+.seg input[value^="Staffing"]:checked + span,.seg input[value^="Training"]:checked + span{background:var(--staff);color:#0b0a10}
+.field input,.field textarea,.field select{width:100%;padding:1rem 1.1rem;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--text);font-family:inherit;font-size:.98rem;transition:border-color .25s,background .25s}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--pink);background:rgba(0,0,0,.4)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-note{font-size:.82rem;color:var(--muted)}
+
+footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 1.8rem;color:var(--muted);font-weight:600;font-size:.92rem}
+.foot-links a:hover{color:var(--text)}
+.giant{font-family:Syne;font-weight:800;font-size:clamp(3rem,13.5vw,12.5rem);line-height:.85;text-align:center;margin-top:3rem;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.04em;user-select:none}
+.copy{color:var(--muted);font-size:.85rem;text-align:center;margin-top:1rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* floating whatsapp */
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.7);transition:transform .25s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+/* responsive */
+@media (max-width:1020px){
+  .svc.wide{grid-column:span 2}
+  .pricing{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+  .plan.hot{transform:none}.plan.hot:hover{transform:translateY(-6px)}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{height:460px;max-width:520px;margin:0 auto;width:100%}
+  .services{grid-template-columns:1fr 1fr}
+  .svc.feature{grid-column:span 2}
+  .process{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr}
+  .flow-arrow{width:auto;height:44px;transform:rotate(90deg)}
+  .audience{grid-template-columns:1fr}
+  .cta-box{grid-template-columns:1fr;padding:3rem 2rem}
+}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .mobile-menu{display:flex;flex-direction:column;gap:1.4rem;position:fixed;inset:78px 0 auto 0;background:rgba(11,10,16,.97);backdrop-filter:blur(16px);padding:2rem 6vw 2.4rem;border-bottom:1px solid var(--line);font-family:Syne;font-weight:700;font-size:1.6rem;transform:translateY(-130%);transition:transform .4s cubic-bezier(.2,.8,.2,1);z-index:49}
+  .mobile-menu.open{transform:none}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  section{padding:85px 0}
+  .divisions{grid-template-columns:1fr}
+  .division{padding:2rem;min-height:auto}
+  .services{grid-template-columns:1fr}
+  .svc.feature{grid-column:auto;grid-template-columns:1fr}
+  .svc.wide{grid-column:auto}
+  .svc.wide .wl{flex-direction:column;align-items:flex-start}
+  .process{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .hero-visual{height:430px}
+  .dcard{width:255px;padding:1.3rem}
+  .dcard h3{font-size:1.4rem}
+  .orb{width:170px;height:170px}
+  .orb-label{font-size:.9rem}
+  .foot{flex-direction:column;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grain"></div>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="Markco Media Agency home">
+      <img src="logo.png" alt="Markco Media" class="logo-img">
+    </a>
+    <nav class="nav-links">
+      <a href="#media">Media</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#staffing">Staffing</a>
+      <a href="#why">Why us</a>
+    </nav>
+    <a href="#contact" class="btn btn-media nav-cta">Let's talk</a>
+    <button class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="#media">Media</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#staffing">Staffing</a><a href="#why">Why us</a>
+  <a href="#contact" class="grad-media">Let's talk →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow reveal">Digital Marketing · Lead Generation · Staffing</span>
+      <h1 class="reveal d1">We make brands<br>impossible to<br><span class="rotator grad-media"><span>ignore.</span><span>scroll past.</span><span>forget.</span><span>outgrow.</span><span>compete with.</span><span>ignore.</span></span></h1>
+      <p class="lead reveal d2">Markco is a creative growth partner. We build brands that get noticed and campaigns that bring in leads, and through Markco Staffing we connect companies with trained, job-ready talent.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#media" class="btn btn-media">Grow my brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#staffing" class="btn btn-staff">Hire talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="badge-row reveal d4">
+        <span class="badge">Social Media</span><span class="badge">Performance Ads</span><span class="badge">Branding</span><span class="badge">Websites</span><span class="badge">Recruitment</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal d2">
+      <div class="orb"></div>
+            <a href="#media" class="dcard m">
+        <span class="tag">Markco Media</span>
+        <h3>More reach.<br>More leads.</h3>
+        <p>Campaigns built to turn scrollers into customers.</p>
+        <div class="mini-chart"><i style="height:35%"></i><i style="height:50%"></i><i style="height:42%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:82%"></i><i style="height:100%"></i></div>
+      </a>
+      <a href="#staffing" class="dcard s">
+        <span class="tag">Markco Staffing</span>
+        <h3>The right people,<br>ready to work.</h3>
+        <div class="people">
+          <span style="background:#3dc8ff">AK</span><span style="background:#8f7bff">RS</span><span style="background:#fff">PM</span><span style="background:#ffb000">NV</span><span style="background:#7b5cff;color:#fff">+</span>
+        </div>
+        <div class="match"><span class="dot"></span>Candidate matched to role</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Social Media Marketing</span><span>Performance Marketing</span><span>Brand & Identity</span><span>Content Creation</span><span>Lead Generation</span><span>Website Design</span><span>Digital Strategy</span><span>Creative Campaigns</span><span>Staffing</span>
+    <span>Social Media Marketing</span><span>Performance Marketing</span><span>Brand & Identity</span><span>Content Creation</span><span>Lead Generation</span><span>Website Design</span><span>Digital Strategy</span><span>Creative Campaigns</span><span>Staffing</span>
+  </div>
+</div>
+
+<!-- TWO DIVISIONS -->
+<section id="media">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow reveal">Two divisions, one team</span>
+      <h2 class="reveal d1">Choose how we <span class="grad-media">grow</span> your business.</h2></div>
+      <p class="reveal d2">Whether you need customers or need people, Markco has a team built for it.</p>
+    </div>
+    <div class="divisions">
+      <a href="#services" class="division m reveal">
+        <div>
+          <span class="num">01 — MEDIA AGENCY</span>
+          <h3><span class="grad-media">Markco</span> Media</h3>
+          <p>A full-service digital marketing agency for brands that want attention, trust and a steady flow of leads.</p>
+          <div class="chips"><span>Social Media</span><span>Performance Ads</span><span>Branding</span><span>Content</span><span>Lead Gen</span><span>Websites</span><span>Strategy</span><span>Campaigns</span></div>
+        </div>
+        <span class="go grad-media">Explore services <svg viewBox="0 0 24 24" fill="none" stroke="#ffb000" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="#staffing" class="division s reveal d1">
+        <div>
+          <span class="num">02 — STAFFING</span>
+          <h3><span class="grad-staff">Markco</span> Staffing</h3>
+          <p>We partner with training institutes to find skilled candidates, prepare them for the workplace, and place them with companies that need them.</p>
+          <div class="chips"><span>Candidate Sourcing</span><span>Screening</span><span>Interview Prep</span><span>Placement</span><span>Institute Partnerships</span></div>
+        </div>
+        <span class="go grad-staff">Explore staffing <svg viewBox="0 0 24 24" fill="none" stroke="#3dc8ff" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow reveal">Markco Media · Our expertise</span>
+      <h2 class="reveal d1">Everything your brand needs to <span class="grad-media">win online.</span></h2></div>
+      <p class="reveal d2">Strategy, creative and performance under one roof, so your brand looks great and the numbers move.</p>
+    </div>
+    <div class="services">
+      <div class="svc reveal"><span class="n">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
+        <h3>Social Media Marketing</h3><p>Instagram, Facebook, LinkedIn and YouTube handled end to end: content calendars, posting, community and growth.</p></div>
+      <div class="svc reveal d1"><span class="n">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/><path d="M15 7h5v5"/></svg></div>
+        <h3>Performance Marketing</h3><p>Meta and Google ad campaigns tracked down to every dollar, tested and optimised for cost per lead and return on spend.</p></div>
+      <div class="svc reveal d2"><span class="n">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></div>
+        <h3>Brand & Identity Design</h3><p>Logos, colour systems, typography and brand guidelines that make you recognisable everywhere.</p></div>
+      <div class="svc feature reveal"><div>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.5V19l4 2v-8.5z"/></svg></div>
+        <h3>Lead Generation</h3><p>Landing pages, lead forms, ads and follow-up flows that bring real enquiries to your phone and inbox, not just likes.</p></div>
+        <div class="funnel"><div>Reach</div><div>Engage</div><div>Enquire</div><div>Convert</div></div>
+      </div>
+      <div class="svc reveal d1"><span class="n">05</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg></div>
+        <h3>Content Creation</h3><p>Reels, short videos, photos, carousels and copy, made for each platform and built to stop the scroll.</p></div>
+      <div class="svc reveal"><span class="n">06</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8l-2 2 2 2M17 8l2 2-2 2"/></svg></div>
+        <h3>Website Design</h3><p>Fast, mobile-first websites and landing pages that look premium and are built to convert visitors into leads.</p></div>
+      <div class="svc reveal d1"><span class="n">07</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Digital Strategy</h3><p>Audience research, competitor audits and a clear growth roadmap, so every dollar has a job.</p></div>
+      <div class="svc reveal d2"><span class="n">08</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h3>Creative Design</h3><p>Ad creatives, posters, packaging, brochures and social graphics that look as good as your product is.</p></div>
+      <div class="svc wide reveal"><div class="wl"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8v18L3 13z"/><path d="M7 12v6a2 2 0 0 0 4 0v-5"/></svg></div><div><h3>Campaigns & AI UGC Content</h3><p>Launches, festive pushes and brand campaigns, plus realistic AI-generated user videos (unboxing, reviews, wear-tests) that build social proof without expensive shoots.</p></div></div>
+        <a href="#pricing" class="btn btn-media">See pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+
+    <div class="sec-head" style="margin-top:7rem">
+      <div><span class="eyebrow reveal">How we work · 4-week onboarding sprint</span>
+      <h2 class="reveal d1">Live and measuring <span class="grad-media">in 4 weeks.</span></h2></div>
+      <p class="reveal d2">Discovery call, then strategy in week 1 and your first batch of creatives by day 12.</p>
+    </div>
+    <div class="process">
+      <div class="step reveal"><h4>Discovery & Strategy</h4><p>Brand and audience deep-dive, competitor benchmarking, content strategy sign-off.</p></div>
+      <div class="step reveal d1"><h4>Creative Build</h4><p>Visual identity refresh, first batch of static posts, website wireframes.</p></div>
+      <div class="step reveal d2"><h4>Reels & Ads</h4><p>Reels scripted and produced, ad creatives ready, Meta Ads account set up.</p></div>
+      <div class="step reveal d3"><h4>Launch & Measure</h4><p>Go live on your feed, website changes deployed, week-1 performance report.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow reveal">Pricing</span>
+      <h2 class="reveal d1">Transparent pricing. <span class="grad-media">Zero surprises.</span></h2></div>
+      <p class="reveal d2">Simple monthly plans with clear deliverables. Add a website whenever you're ready.</p>
+    </div>
+    <div class="pricing">
+      <div class="plan reveal">
+        <div class="pname">SMM Only</div>
+        <div class="pdesc">A consistent, scroll-stopping social presence.</div>
+        <div class="price"><sup>$</sup>299</div>
+        <div class="per">per month</div>
+        <ul><li>10 static posts</li><li>10 reels</li><li>Content calendar</li><li>Caption + hashtag copy</li><li>Basic monthly report</li></ul>
+        <a href="#contact" class="btn btn-ghost" data-plan="SMM Only ($299/month)">Choose SMM Only</a>
+      </div>
+      <div class="plan hot reveal d1">
+        <span class="ribbon">RECOMMENDED</span>
+        <div class="pname">Full Growth</div>
+        <div class="pdesc">Social, ads and SEO working together to drive sales.</div>
+        <div class="price"><sup>$</sup>499</div>
+        <div class="per">per month</div>
+        <ul><li>Everything in SMM Only</li><li>Meta Ads management</li><li>AI UGC content</li><li>SEO audit + fixes</li><li>A/B creative testing & retargeting</li><li>Detailed monthly performance report</li></ul>
+        <a href="#contact" class="btn btn-media" data-plan="Full Growth ($499/month)">Choose Full Growth</a>
+      </div>
+      <div class="plan reveal d2">
+        <div class="pname">Website Add-on</div>
+        <div class="pdesc">A website that closes the sale.</div>
+        <div class="price"><sup>$</sup>199</div>
+        <div class="per">one-time</div>
+        <ul><li>Website UX audit</li><li>Homepage redesign</li><li>Product page revamp</li><li>Speed & mobile optimisation</li><li>SEO architecture</li></ul>
+        <a href="#contact" class="btn btn-ghost" data-plan="Website Add-on ($199 one-time)">Add a website</a>
+      </div>
+    </div>
+    <p class="price-note reveal">Full Growth includes an additional 15% performance fee based on ad spend. Ad spend is paid directly to Meta / Google.</p>
+  </div>
+</section>
+
+<!-- STAFFING -->
+<section id="staffing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow reveal" style="color:var(--teal)">Markco Staffing</span>
+      <h2 class="reveal d1">Trained talent, <span class="grad-staff">placed right.</span></h2></div>
+      <p class="reveal d2">We bridge the gap between training institutes and growing companies, so candidates find the right jobs and companies get the right people.</p>
+    </div>
+
+    <div class="flow">
+      <div class="flow-node reveal">
+        <span class="lbl">Step 1 · Source</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+        <h4>Training Institutes</h4><p>We partner with institutes to find skilled, trained candidates.</p>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 60 24" fill="none"><path d="M2 12h50" stroke-width="2.5"/><path d="M46 5l8 7-8 7" stroke-width="2.5" style="stroke-dasharray:none;animation:none"/></svg></div>
+      <div class="flow-node center reveal d1">
+        <span class="lbl">Step 2 · Prepare</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Markco</h4><p>We screen, groom and prepare each candidate: communication, interview readiness and role fit.</p>
+      </div>
+      <div class="flow-arrow"><svg viewBox="0 0 60 24" fill="none"><path d="M2 12h50" stroke-width="2.5"/><path d="M46 5l8 7-8 7" stroke-width="2.5" style="stroke-dasharray:none;animation:none"/></svg></div>
+      <div class="flow-node reveal d2">
+        <span class="lbl">Step 3 · Place</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+        <h4>Companies</h4><p>We match ready candidates to companies for long-term, successful placements.</p>
+      </div>
+    </div>
+
+    <div class="audience">
+      <div class="aud reveal">
+        <span class="who">For companies</span>
+        <h3>Hire faster, hire better.</h3>
+        <ul>
+          <li>Pre-screened candidates matched to your role</li>
+          <li>Freshers and trained professionals</li>
+          <li>Bulk hiring and single positions</li>
+          <li>Less time spent on sorting CVs</li>
+        </ul>
+      </div>
+      <div class="aud reveal d1">
+        <span class="who">For training institutes</span>
+        <h3>Better placements for your students.</h3>
+        <ul>
+          <li>A placement partner with company connections</li>
+          <li>Interview and communication preparation</li>
+          <li>Better placement outcomes to show new students</li>
+          <li>A simple, transparent partnership</li>
+        </ul>
+      </div>
+      <div class="aud reveal d2">
+        <span class="who">For candidates</span>
+        <h3>Your skills, the right job.</h3>
+        <ul>
+          <li>Access to openings with partner companies</li>
+          <li>Guidance on CVs and interviews</li>
+          <li>Roles that match your training</li>
+          <li>Support from first call to joining day</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="roles-title reveal">Roles we help fill</p>
+    <div class="roles reveal d1">
+      <span>IT & Software</span><span>Sales & Business Development</span><span>Digital Marketing</span><span>Customer Support / BPO</span><span>Accounts & Finance</span><span>HR & Admin</span><span>Data Entry & Back Office</span><span>Graphic Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow reveal">Why Markco</span>
+      <h2 class="reveal d1">Creative minds, <span class="grad-media">business</span> focus.</h2></div>
+    </div>
+    <div class="why">
+      <div class="why-item reveal"><div class="big grad-media">1</div><h4>Founder-led</h4><p>Senior attention on every brief, not a junior team with a senior face.</p></div>
+      <div class="why-item reveal d1"><div class="big grad-media">$</div><h4>Results you can see</h4><p>Clear reports on reach, leads and cost, with no confusing jargon.</p></div>
+      <div class="why-item reveal d2"><div class="big grad-staff">✦</div><h4>Creative first</h4><p>Ideas that make people stop, look and remember your brand.</p></div>
+      <div class="why-item reveal d3"><div class="big grad-staff">24h</div><h4>Quick response</h4><p>We reply to every enquiry within one working day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <div>
+        <span class="eyebrow">Let's work together</span>
+        <h2>Ready to <span class="grad-media">grow</span>?<br>Let's <span class="grad-staff">talk.</span></h2>
+        <p>Tell us what you need, whether it's leads, a new brand, a website or the right people for your team. We'll get back to you within one working day.</p>
+        <div class="contact-lines">
+          <a href="#" data-email><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span><span data-email-text></span></a>
+        </div>
+      </div>
+      <form id="enquiry">
+        <div class="seg" role="radiogroup" aria-label="I'm interested in">
+          <label><input type="radio" name="type" value="Digital Marketing" checked><span>Digital Marketing</span></label>
+          <label><input type="radio" name="type" value="Website / Branding"><span>Website / Branding</span></label>
+          <label><input type="radio" name="type" value="Staffing (hire talent)"><span>Hire Talent</span></label>
+          <label><input type="radio" name="type" value="Training institute partnership"><span>Institute Partner</span></label>
+        </div>
+        <div class="row2">
+          <div class="field"><input name="name" placeholder="Your name" required></div>
+          <div class="field"><input name="company" placeholder="Company / Institute"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><input name="phone" type="tel" placeholder="Phone (optional)"></div>
+          <div class="field"><input name="email" type="email" placeholder="Your email" required></div>
+        </div>
+        <div class="field"><textarea name="message" placeholder="Tell us a little about what you need"></textarea></div>
+        <button class="btn btn-media" type="submit" style="justify-content:center">Send enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="form-note">Opens your email app with your details filled in. Or write to us directly at <a href="#" data-email style="text-decoration:underline"><span data-email-text></span></a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#" class="logo"><img src="logo.png" alt="Markco Media" class="logo-img"></a>
+      <div class="foot-links"><a href="#media">Media</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#staffing">Staffing</a><a href="#contact">Contact</a></div>
+    </div>
+    <div class="giant">Markco</div>
+    <p class="copy">© <span id="yr"></span> Markco Media Agency. Digital Marketing · Lead Generation · Website Design · Staffing.</p>
+  </div>
+</footer>
+
+
+<script>
+/* ============================================================
+   EDIT YOUR CONTACT DETAILS HERE — everything else updates itself
+   ============================================================ */
+const CONTACT = {
+  email: "markcomediaagency@gmail.com"   // your business email
+};
+/* ============================================================ */
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+const $ = s => document.querySelectorAll(s);
+$('[data-email]').forEach(a => a.href = 'mailto:' + CONTACT.email);
+$('[data-email-text]').forEach(s => s.textContent = CONTACT.email);
+
+/* header on scroll */
+const header = document.querySelector('header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 30), {passive:true});
+
+/* mobile menu */
+const burger = document.querySelector('.burger'), menu = document.querySelector('.mobile-menu');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); menu.classList.remove('open'); }));
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+$('.reveal').forEach(el => io.observe(el));
+
+/* spotlight hover on service cards */
+$('.svc').forEach(c => c.addEventListener('pointermove', e => {
+  const r = c.getBoundingClientRect();
+  c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+  c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+}));
+
+/* plan buttons prefill the form */
+document.querySelectorAll('[data-plan]').forEach(b => b.addEventListener('click', () => {
+  const m = form.querySelector('[name=message]');
+  m.value = 'I\'m interested in the ' + b.dataset.plan + ' plan.';
+  form.querySelector('[value="Digital Marketing"]').checked = true;
+}));
+/* enquiry form → email */
+const form = document.getElementById('enquiry');
+function buildMessage() {
+  const d = new FormData(form);
+  return `Hi Markco Media! New enquiry from your website:\n\nInterested in: ${d.get('type')}\nName: ${d.get('name')}\nCompany: ${d.get('company') || '-'}\nPhone: ${d.get('phone') || '-'}\nEmail: ${d.get('email') || '-'}\n\n${d.get('message') || ''}`;
+}
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  location.href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent('Website enquiry: ' + new FormData(form).get('type')) + '&body=' + encodeURIComponent(buildMessage());
+});
+</script>
+</body>
+</html>
