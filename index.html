@@ -12,7 +12,7 @@
 <meta property="og:image" content="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=block" rel="stylesheet">
 <style>
 :root{
   --bg:#0b0a10; --bg2:#13111b; --card:#17141f; --line:rgba(255,255,255,.09);
@@ -267,6 +267,111 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
 .wa:hover{transform:scale(1.08)}
 .wa svg{width:30px;height:30px;fill:#fff}
 
+
+/* ===== INTRO ===== */
+body.intro-on{overflow:hidden}
+#intro{position:fixed;inset:0;z-index:200;background:#0b0a10;overflow:hidden;transition:transform .9s cubic-bezier(.8,0,.2,1)}
+#intro.done{transform:translateY(-100%)}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;opacity:0;animation:scn .78s var(--d) both;pointer-events:none}
+.sc svg{width:min(170px,40vw);height:auto;overflow:visible}
+.sc p{font-family:Syne;font-weight:800;font-size:clamp(2.4rem,8vw,5rem);color:#fff;line-height:1}
+.sc p b{color:#ffd23f}
+@keyframes scn{0%{opacity:0;transform:scale(.6) rotate(-4deg)}18%{opacity:1;transform:none}80%{opacity:1;transform:scale(1.03)}100%{opacity:0;transform:scale(1.3)}}
+.i-spin{transform-box:fill-box;transform-origin:center;animation:ispin .9s linear infinite}
+@keyframes ispin{to{transform:rotate(360deg)}}
+.i-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;animation:iflash .45s .62s both}
+@keyframes iflash{0%{opacity:0}12%{opacity:.95}100%{opacity:0}}
+.i-shutter{transform-box:fill-box;transform-origin:center;animation:ishut .45s .5s both}
+@keyframes ishut{0%,100%{transform:scale(1)}50%{transform:scale(.15)}}
+.i-heart{transform-box:fill-box;transform-origin:center;animation:ipump .5s calc(var(--d) + .1s) 2 ease-in-out}
+@keyframes ipump{50%{transform:scale(1.25)}}
+.chip{position:absolute;left:50%;top:44%;padding:.45rem .9rem;border-radius:999px;background:#fff;color:#111;font-weight:800;font-size:clamp(.8rem,2.4vw,1rem);white-space:nowrap;opacity:0;animation:ichip .7s var(--cd) both}
+@keyframes ichip{0%{opacity:0;transform:translate(var(--x),40px) scale(.6)}25%{opacity:1}100%{opacity:0;transform:translate(var(--x),-120px) scale(1)}}
+.i-bar-r{transform-box:fill-box;transform-origin:bottom;animation:igrow .45s var(--bd) cubic-bezier(.3,1.5,.5,1) both}
+@keyframes igrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.i-line{stroke-dasharray:200;stroke-dashoffset:200;animation:idraw .5s 3.05s ease-out forwards}
+@keyframes idraw{to{stroke-dashoffset:0}}
+.i-coin{animation:iflip .6s 3.25s ease-in-out 2}
+@keyframes iflip{50%{transform:rotateY(180deg)}}
+.fall{position:absolute;top:-60px;width:44px;height:44px;border-radius:50%;background:#ffd23f;border:4px solid #e0a800;color:#111;font-weight:800;display:grid;place-items:center;font-size:1.1rem;animation:ifall .7s var(--fd) ease-in both}
+@keyframes ifall{from{transform:translateY(0) rotate(0)}to{transform:translateY(calc(50vh + 40px)) rotate(200deg);opacity:0}}
+.i-yellow{position:absolute;inset:0;background:#fad02c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;clip-path:circle(0% at 50% 50%);animation:iyel .75s 4.05s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes iyel{to{clip-path:circle(150% at 50% 50%)}}
+.i-logo{display:flex;align-items:center;font-family:'Archivo Black',Syne,sans-serif;color:#000;font-size:clamp(3.2rem,12vw,8rem);letter-spacing:-.03em;line-height:1}
+.l1{position:relative;z-index:1;animation:isl .6s 4.55s cubic-bezier(.2,.9,.3,1) both}
+@keyframes isl{from{opacity:0;transform:translateX(-80px)}to{opacity:1;transform:none}}
+.l-co{position:relative;display:inline-flex;align-items:center;justify-content:center;width:1.75em;height:1.75em;margin-left:-.3em}
+.l2{position:absolute;inset:0;border-radius:50%;background:#fff;animation:ipop .55s 4.95s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes ipop{from{transform:scale(0)}to{transform:scale(1)}}
+.l3{position:relative;animation:idrop .5s 5.3s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes idrop{from{opacity:0;transform:translateY(-1.2em)}to{opacity:1;transform:none}}
+.l4{font-family:Manrope,sans-serif;font-weight:800;font-size:.22em;letter-spacing:.06em;writing-mode:vertical-rl;margin-left:-.1em;animation:ivin .5s 5.65s ease-out both}
+@keyframes ivin{from{opacity:0;transform:rotate(180deg) translateY(-40px)}to{opacity:1;transform:rotate(180deg)}}
+.i-tag{font-family:Syne;font-weight:700;color:#111;font-size:clamp(1rem,2.6vw,1.4rem);animation:isl .6s 5.95s both}
+.i-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.08)}
+.i-bar i{display:block;height:100%;width:0;background:#ffd23f;animation:ibar 6.9s linear forwards}
+@keyframes ibar{to{width:100%}}
+.i-skip{position:absolute;right:22px;bottom:22px;z-index:3;background:rgba(0,0,0,.35);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.6rem 1.1rem;font:700 .85rem Manrope,sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
+
+/* ===== MODE SWITCH ===== */
+body.staff{--media:linear-gradient(120deg,#3dc8ff,#8f7bff)}
+.mode-toggle{--w:158px;position:relative;display:inline-flex;padding:5px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.mode-toggle button{position:relative;z-index:1;width:var(--w);padding:.75rem 0;background:none;border:0;color:var(--muted);font:700 .93rem Manrope,sans-serif;cursor:pointer;transition:color .3s}
+.mode-toggle button.on{color:#111}
+.mt-knob{position:absolute;top:5px;left:5px;bottom:5px;width:var(--w);border-radius:999px;background:var(--media);transition:left .5s cubic-bezier(.5,1.6,.4,1);box-shadow:0 8px 24px -8px rgba(255,210,63,.6)}
+body.staff .mt-knob{left:calc(5px + var(--w));box-shadow:0 8px 24px -8px rgba(61,200,255,.6)}
+.swap{animation:swapin .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes swapin{from{opacity:0;transform:translateY(24px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.blob{transition:background 1s}
+body.staff .b1{background:#3dc8ff}
+body.staff .dcard.m{opacity:.4;transform:rotate(-5deg) scale(.9)}
+body.staff .dcard.s{z-index:4;transform:rotate(0) scale(1.06);border-color:rgba(61,200,255,.45)}
+body:not(.staff) .dcard.m{z-index:4;border-color:rgba(255,210,63,.35)}
+.dcard{transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s,border-color .6s}
+.wipe{position:fixed;inset:0;z-index:150;pointer-events:none}
+
+/* ===== POSTER ===== */
+.poster{background:#fad02c;color:#0b0a10;padding:0 0 110px;overflow:hidden;position:relative}
+.p-marq{background:#0b0a10;color:#fad02c;padding:1rem 0;transform:rotate(-1.6deg);margin:2.2rem -3vw 5rem;overflow:hidden}
+.p-track{display:flex;width:max-content;animation:marq 26s linear infinite}
+.p-track span{font-family:Syne;font-weight:800;font-size:clamp(1rem,2.2vw,1.5rem);letter-spacing:.06em;white-space:nowrap;padding-right:2rem}
+.p-inner{position:relative}
+.p-big{font-family:'Archivo Black',Syne,sans-serif;font-weight:400;font-size:clamp(3rem,10.5vw,9.5rem);line-height:.9;letter-spacing:-.035em}
+.p-big .pill{display:inline-block;background:#0b0a10;color:#fad02c;border-radius:999px;padding:0 .28em .06em;transform:rotate(-2deg)}
+.p-row{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-top:3rem;flex-wrap:wrap}
+.p-row p{max-width:480px;font-size:1.15rem;font-weight:600}
+.btn-black{background:#0b0a10;color:#fad02c}
+.btn-black:hover{box-shadow:0 14px 30px -12px rgba(0,0,0,.6)}
+.p-badge{position:absolute;right:0;top:-2rem;width:170px;height:170px}
+.p-badge svg.ring{width:100%;height:100%;animation:ispin 14s linear infinite}
+.p-badge .co{position:absolute;inset:38px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:'Archivo Black';font-size:2.3rem}
+
+/* ===== QUIZ ===== */
+.quiz-box{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:center;padding:3.5rem;border-radius:34px;border:1px solid var(--line);background:linear-gradient(140deg,rgba(255,210,63,.07),rgba(123,92,255,.06));position:relative;overflow:hidden}
+.quiz-box h2{font-size:clamp(2rem,4.2vw,3.3rem);font-weight:800;margin:1rem 0}
+.quiz-box > div > p{color:var(--muted);font-size:1.05rem}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:2.2rem;min-height:340px;display:flex;flex-direction:column}
+.qdots{display:flex;gap:6px;margin-bottom:1.4rem}
+.qdots i{flex:1;height:5px;border-radius:5px;background:rgba(255,255,255,.1);transition:background .4s}
+.qdots i.on{background:var(--media)}
+.qstep{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.qq{font-family:Syne;font-weight:700;font-size:1.55rem;line-height:1.15;margin:.5rem 0 1.4rem}
+.qopts{display:grid;gap:.7rem}
+.qopts button{display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;padding:1rem 1.2rem;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);font:600 .98rem Manrope,sans-serif;cursor:pointer;transition:all .25s}
+.qopts button::after{content:"→";opacity:.4;transition:transform .25s,opacity .25s}
+.qopts button:hover{border-color:rgba(255,210,63,.5);background:rgba(255,210,63,.07);transform:translateX(4px)}
+.qopts button:hover::after{opacity:1;transform:translateX(4px)}
+.qopts button.pick{background:var(--media);color:#111;border-color:transparent}
+.qres .plan-name{font-family:Syne;font-weight:800;font-size:2.4rem;line-height:1.05;margin:.4rem 0}
+.qres .plan-price{font-family:Syne;font-weight:800;font-size:1.3rem}
+.qres p{color:var(--muted);margin:.8rem 0 1.6rem}
+.qres .acts{display:flex;gap:.8rem;flex-wrap:wrap}
+.plan.pulse{animation:ppulse 1.4s 2}
+@keyframes ppulse{50%{box-shadow:0 0 0 6px rgba(255,210,63,.55),0 30px 90px -30px rgba(255,210,63,.7)}}
+
+@media (max-width:1020px){.quiz-box{grid-template-columns:1fr;padding:2.2rem}.p-badge{width:120px;height:120px;top:-1rem}.p-badge .co{inset:27px;font-size:1.6rem}}
+@media (max-width:760px){.mode-toggle{--w:138px}.mode-toggle button{font-size:.86rem}.qcard{padding:1.6rem}.p-badge{display:none}.p-marq{margin-bottom:3rem}.poster{padding-bottom:80px}}
+
 /* responsive */
 @media (max-width:1020px){
   .svc.wide{grid-column:span 2}
@@ -312,6 +417,43 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true">
+  <div class="sc" style="--d:.1s">
+    <svg viewBox="0 0 140 110" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linejoin="round"><path d="M10 34h28l10-16h44l10 16h28v66H10z"/><circle cx="70" cy="64" r="26"/><g class="i-shutter"><circle cx="70" cy="64" r="13" fill="#ffd23f" stroke="none"/></g><rect x="108" y="44" width="12" height="8" rx="2" fill="#fff" stroke="none"/></svg>
+    <p>Shoot<b>.</b></p>
+  </div>
+  <div class="i-flash"></div>
+  <div class="sc" style="--d:.85s">
+    <svg viewBox="0 0 120 120" fill="none" stroke="#ffd23f" stroke-width="6"><g class="i-spin"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="9" fill="#ffd23f"/><circle cx="60" cy="27" r="11"/><circle cx="91" cy="50" r="11"/><circle cx="79" cy="87" r="11"/><circle cx="41" cy="87" r="11"/><circle cx="29" cy="50" r="11"/></g></svg>
+    <p>Roll<b>.</b></p>
+  </div>
+  <div class="sc" style="--d:1.6s">
+    <svg viewBox="0 0 120 110"><path class="i-heart" fill="#ff4f6d" d="M60 104S8 72 8 36C8 18 22 6 38 6c10 0 18 5 22 13 4-8 12-13 22-13 16 0 30 12 30 30 0 36-52 68-52 68z"/></svg>
+    <span class="chip" style="--x:-170%;--cd:1.8s">+12.4K likes</span>
+    <span class="chip" style="--x:40%;--cd:1.95s">+3.1K shares</span>
+    <span class="chip" style="--x:-60%;--cd:2.1s">+980 followers</span>
+    <p>Go <b>viral.</b></p>
+  </div>
+  <div class="sc" style="--d:2.35s">
+    <svg viewBox="0 0 150 120" fill="none"><rect class="i-bar-r" style="--bd:2.45s" x="8" y="80" width="24" height="34" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.55s" x="44" y="60" width="24" height="54" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.65s" x="80" y="38" width="24" height="76" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.75s" x="116" y="10" width="24" height="104" rx="4" fill="#ffb000"/><path class="i-line" d="M6 70 L50 46 L84 54 L140 4" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p><b>Grow.</b></p>
+  </div>
+  <div class="sc" style="--d:3.1s">
+    <svg viewBox="0 0 120 120" class="i-coin"><circle cx="60" cy="60" r="54" fill="#ffd23f" stroke="#e0a800" stroke-width="8"/><circle cx="60" cy="60" r="38" fill="none" stroke="#e0a800" stroke-width="3"/><text x="60" y="80" text-anchor="middle" font-family="Archivo Black,Arial Black,sans-serif" font-size="56" fill="#111">$</text></svg>
+    <span class="fall" style="left:22%;--fd:3.2s">$</span><span class="fall" style="left:70%;--fd:3.3s">₹</span><span class="fall" style="left:40%;--fd:3.45s">$</span><span class="fall" style="left:84%;--fd:3.15s">$</span><span class="fall" style="left:10%;--fd:3.4s">₹</span>
+    <p><b>Earn.</b></p>
+  </div>
+  <div class="i-yellow">
+    <div class="i-logo"><span class="l1">Mark</span><span class="l-co"><i class="l2"></i><span class="l3">co</span></span><span class="l4">MEDIA</span></div>
+    <p class="i-tag">Media presence that grows your business.</p>
+  </div>
+  <div class="i-bar"><i></i></div>
+  <button class="i-skip" type="button">Skip intro →</button>
+</div>
+<script>
+(function(){var seen=false;try{seen=sessionStorage.getItem('markcoIntro')==='1'}catch(e){}
+if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){var el=document.getElementById('intro');el.parentNode.removeChild(el);}else{document.body.classList.add('intro-on');}})();
+</script>
 <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div class="grain"></div>
 
@@ -340,14 +482,14 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow reveal">Digital Marketing · Lead Generation · Staffing</span>
-      <h1 class="reveal d1">We make brands<br>impossible to<br><span class="rotator grad-media"><span>ignore.</span><span>scroll past.</span><span>forget.</span><span>outgrow.</span><span>compete with.</span><span>ignore.</span></span></h1>
-      <p class="lead reveal d2">Markco is a creative growth partner. We build brands that get noticed and campaigns that bring in leads, and through Markco Staffing we connect companies with trained, job-ready talent.</p>
-      <div class="hero-actions reveal d3">
-        <a href="#media" class="btn btn-media">Grow my brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="#staffing" class="btn btn-staff">Hire talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="mode-toggle reveal" role="group" aria-label="Choose what you need"><span class="mt-knob"></span><button type="button" data-mode="media" class="on">Grow my brand</button><button type="button" data-mode="staff">Hire talent</button></div>
+      <h1 class="reveal d1" id="heroH">We make brands<br>impossible to<br><span class="rotator grad-media"><span>ignore.</span><span>scroll past.</span><span>forget.</span><span>outgrow.</span><span>compete with.</span><span>ignore.</span></span></h1>
+      <p class="lead reveal d2" id="heroP">Markco is a creative growth partner. We build brands that get noticed and campaigns that bring in leads, and through Markco Staffing we connect companies with trained, job-ready talent.</p>
+      <div class="hero-actions reveal d3" id="heroA">
+        <a href="#services" class="btn btn-media">Grow my brand <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#pricing" class="btn btn-ghost">See pricing</a>
       </div>
-      <div class="badge-row reveal d4">
+      <div class="badge-row reveal d4" id="heroB">
         <span class="badge">Social Media</span><span class="badge">Performance Ads</span><span class="badge">Branding</span><span class="badge">Websites</span><span class="badge">Recruitment</span>
       </div>
     </div>
@@ -463,6 +605,36 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
   </div>
 </section>
 
+<!-- POSTER -->
+<section class="poster" aria-label="Stop scrolling, start growing">
+  <div class="p-marq" aria-hidden="true"><div class="p-track"><span>SOCIAL MEDIA ✦ PERFORMANCE ADS ✦ BRANDING ✦ CONTENT ✦ LEAD GENERATION ✦ WEBSITES ✦ STAFFING ✦</span><span>SOCIAL MEDIA ✦ PERFORMANCE ADS ✦ BRANDING ✦ CONTENT ✦ LEAD GENERATION ✦ WEBSITES ✦ STAFFING ✦</span></div></div>
+  <div class="wrap p-inner">
+    <div class="p-badge" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs><text font-family="Syne" font-weight="800" font-size="16" fill="#0b0a10"><textPath href="#circ" textLength="496" lengthAdjust="spacing">MARKCO MEDIA ✦ GROW WITH US ✦</textPath></text></svg>
+      <div class="co">co</div>
+    </div>
+    <h2 class="p-big reveal">Stop<br>scrolling.<br>Start <span class="pill">growing.</span></h2>
+    <div class="p-row">
+      <p class="reveal d1">Your customers are online every day, scrolling right past you. We make them stop at your brand and turn them into customers.</p>
+      <a href="#quiz" class="btn btn-black reveal d2">Find my plan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="wrap">
+    <div class="quiz-box reveal">
+      <div>
+        <span class="eyebrow">20-second quiz</span>
+        <h2>Not sure which plan <span class="grad-media">fits you?</span></h2>
+        <p>Answer 3 quick questions and we'll recommend the right plan for your business.</p>
+      </div>
+      <div class="qcard" id="qcard" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
@@ -472,7 +644,7 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
       <p class="reveal d2">Simple monthly plans with clear deliverables. Add a website whenever you're ready.</p>
     </div>
     <div class="pricing">
-      <div class="plan reveal">
+      <div class="plan reveal" id="plan-smm">
         <div class="pname">SMM Only</div>
         <div class="pdesc">A consistent, scroll-stopping social presence.</div>
         <div class="price"><sup>$</sup>299</div>
@@ -480,7 +652,7 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
         <ul><li>10 static posts</li><li>10 reels</li><li>Content calendar</li><li>Caption + hashtag copy</li><li>Basic monthly report</li></ul>
         <a href="#contact" class="btn btn-ghost" data-plan="SMM Only ($299/month)">Choose SMM Only</a>
       </div>
-      <div class="plan hot reveal d1">
+      <div class="plan hot reveal d1" id="plan-growth">
         <span class="ribbon">RECOMMENDED</span>
         <div class="pname">Full Growth</div>
         <div class="pdesc">Social, ads and SEO working together to drive sales.</div>
@@ -489,7 +661,7 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
         <ul><li>Everything in SMM Only</li><li>Meta Ads management</li><li>AI UGC content</li><li>SEO audit + fixes</li><li>A/B creative testing & retargeting</li><li>Detailed monthly performance report</li></ul>
         <a href="#contact" class="btn btn-media" data-plan="Full Growth ($499/month)">Choose Full Growth</a>
       </div>
-      <div class="plan reveal d2">
+      <div class="plan reveal d2" id="plan-web">
         <div class="pname">Website Add-on</div>
         <div class="pdesc">A website that closes the sale.</div>
         <div class="price"><sup>$</sup>199</div>
@@ -659,7 +831,7 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burg
 
 /* reveal on scroll */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
-$('.reveal').forEach(el => io.observe(el));
+function startReveals(){ $('.reveal').forEach(el => io.observe(el)); }
 
 /* spotlight hover on service cards */
 $('.svc').forEach(c => c.addEventListener('pointermove', e => {
@@ -684,6 +856,102 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   location.href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent('Website enquiry: ' + new FormData(form).get('type')) + '&body=' + encodeURIComponent(buildMessage());
 });
+
+/* ===== INTRO ===== */
+(function(){
+  const intro = document.getElementById('intro');
+  if (!intro) { startReveals(); return; }
+  let finished = false;
+  function finish(){
+    if (finished) return; finished = true;
+    try { sessionStorage.setItem('markcoIntro','1'); } catch(e) {}
+    intro.classList.add('done');
+    document.body.classList.remove('intro-on');
+    startReveals();
+    setTimeout(() => intro.remove(), 950);
+  }
+  intro.querySelector('.i-skip').addEventListener('click', finish);
+  setTimeout(finish, 6900);
+})();
+
+/* ===== MODE SWITCH ===== */
+const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const MODES = {
+  media: {
+    h: 'We make brands<br>impossible to<br><span class="rotator grad-media"><span>ignore.</span><span>scroll past.</span><span>forget.</span><span>outgrow.</span><span>compete with.</span><span>ignore.</span></span>',
+    p: 'Markco is a creative growth partner. We build brands that get noticed and campaigns that bring in leads, and through Markco Staffing we connect companies with trained, job-ready talent.',
+    a: '<a href="#services" class="btn btn-media">Grow my brand '+ARROW+'</a><a href="#pricing" class="btn btn-ghost">See pricing</a>',
+    b: ['Social Media','Performance Ads','Branding','Websites','Lead Generation']
+  },
+  staff: {
+    h: 'We place talent<br>that companies<br><span class="rotator grad-media"><span>love.</span><span>trust.</span><span>keep.</span><span>grow with.</span><span>need.</span><span>love.</span></span>',
+    p: 'Markco Staffing partners with training institutes to find skilled candidates, prepares them for the workplace, and places them with companies that need them.',
+    a: '<a href="#staffing" class="btn btn-media">Hire talent '+ARROW+'</a><a href="#contact" class="btn btn-ghost" data-institute>Partner as an institute</a>',
+    b: ['IT & Software','Sales','Customer Support','Accounts','Freshers & Trained']
+  }
+};
+let mode = 'media';
+function setMode(m, ev){
+  if (m === mode) return; mode = m;
+  const color = m === 'staff' ? '#3dc8ff' : '#ffd23f';
+  const x = ev ? ev.clientX : innerWidth/2, y = ev ? ev.clientY : innerHeight/3;
+  const w = document.createElement('div'); w.className = 'wipe'; w.style.background = color; document.body.appendChild(w);
+  const anim = w.animate([{clipPath:`circle(0px at ${x}px ${y}px)`,opacity:.9},{clipPath:`circle(150vmax at ${x}px ${y}px)`,opacity:.9},{clipPath:`circle(150vmax at ${x}px ${y}px)`,opacity:0}],{duration:900,easing:'cubic-bezier(.7,0,.3,1)'});
+  anim.onfinish = () => w.remove();
+  setTimeout(() => {
+    document.body.classList.toggle('staff', m === 'staff');
+    document.querySelectorAll('.mode-toggle button').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    const d = MODES[m];
+    const H = document.getElementById('heroH'), P = document.getElementById('heroP'), A = document.getElementById('heroA'), B = document.getElementById('heroB');
+    H.innerHTML = d.h; P.textContent = d.p; A.innerHTML = d.a;
+    B.innerHTML = d.b.map(t => '<span class="badge">'+t+'</span>').join('');
+    [H,P,A,B].forEach((el,i) => { el.classList.remove('swap'); void el.offsetWidth; el.style.animationDelay = (i*.07)+'s'; el.classList.add('swap'); });
+    const inst = A.querySelector('[data-institute]');
+    if (inst) inst.addEventListener('click', () => { const r = form.querySelector('[value="Training institute partnership"]'); if (r) r.checked = true; });
+  }, 380);
+}
+document.querySelectorAll('.mode-toggle button').forEach(b => b.addEventListener('click', e => setMode(b.dataset.mode, e)));
+
+/* ===== QUIZ ===== */
+const QUIZ = [
+  { q: 'What do you need most right now?', o: ['More followers and engagement', 'More leads and sales', 'A new or better website', 'Staff for my company'] },
+  { q: 'Are you running paid ads?', o: ['Not yet', 'Yes, but they need work', 'Yes, and I want them managed'] },
+  { q: 'Your monthly marketing budget?', o: ['Under $400', '$400 – $1,000', 'Above $1,000'] }
+];
+const qcard = document.getElementById('qcard');
+let qi = 0, answers = [];
+function dots(n){ return '<div class="qdots">' + [0,1,2].map(i => '<i class="'+(i<n?'on':'')+'"></i>').join('') + '</div>'; }
+function renderQ(){
+  const item = QUIZ[qi];
+  qcard.innerHTML = dots(qi+1) + '<div class="qstep">Question '+(qi+1)+' of 3</div><div class="qq">'+item.q+'</div><div class="qopts">' + item.o.map((t,j) => '<button type="button" data-j="'+j+'">'+t+'</button>').join('') + '</div>';
+  qcard.classList.remove('swap'); void qcard.offsetWidth; qcard.classList.add('swap');
+  qcard.querySelectorAll('.qopts button').forEach(b => b.addEventListener('click', () => {
+    b.classList.add('pick'); answers.push(+b.dataset.j);
+    setTimeout(() => { if (qi === 0 && answers[0] === 3) return result(); qi++; qi < QUIZ.length ? renderQ() : result(); }, 280);
+  }));
+}
+function result(){
+  let r;
+  if (answers[0] === 3) r = { name:'Markco Staffing', price:'Free hiring consultation', why:'Tell us the roles you need and we\'ll match you with trained, pre-screened candidates.', type:'Staffing (hire talent)', plan:null };
+  else if (answers[0] === 2) r = { name:'Website Add-on', price:'$199 one-time', why:'A fast, mobile-first website that turns visitors into enquiries. Pair it with SMM Only to bring traffic to it.', type:'Website / Branding', plan:'plan-web', label:'Website Add-on ($199 one-time)' };
+  else if (answers[0] === 1 || answers[1] > 0 || answers[2] > 0) r = { name:'Full Growth', price:'$499 / month', why:'Social media, Meta Ads, AI UGC content and SEO working together to bring you leads and sales.', type:'Digital Marketing', plan:'plan-growth', label:'Full Growth ($499/month)' };
+  else r = { name:'SMM Only', price:'$299 / month', why:'10 posts, 10 reels and a full content calendar to build a consistent, scroll-stopping presence.', type:'Digital Marketing', plan:'plan-smm', label:'SMM Only ($299/month)' };
+  qcard.innerHTML = dots(3) + '<div class="qres"><div class="qstep">Your best match</div><div class="plan-name grad-media">'+r.name+'</div><div class="plan-price">'+r.price+'</div><p>'+r.why+'</p><div class="acts"><button type="button" class="btn btn-media" id="qGet">Get this plan '+ARROW+'</button>' + (r.plan ? '<button type="button" class="btn btn-ghost" id="qSee">Compare plans</button>' : '') + '<button type="button" class="btn btn-ghost" id="qAgain">Start again</button></div></div>';
+  qcard.classList.remove('swap'); void qcard.offsetWidth; qcard.classList.add('swap');
+  document.getElementById('qGet').addEventListener('click', () => {
+    const radio = form.querySelector('[value="'+r.type+'"]'); if (radio) radio.checked = true;
+    form.querySelector('[name=message]').value = r.plan ? 'I\'m interested in the ' + r.label + ' plan.' : 'I\'d like to hire candidates for my company.';
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  });
+  const see = document.getElementById('qSee');
+  if (see) see.addEventListener('click', () => {
+    const card = document.getElementById(r.plan);
+    card.scrollIntoView({behavior:'smooth', block:'center'});
+    card.classList.remove('pulse'); void card.offsetWidth; card.classList.add('pulse');
+  });
+  document.getElementById('qAgain').addEventListener('click', () => { qi = 0; answers = []; renderQ(); });
+}
+renderQ();
 </script>
 </body>
 </html>
