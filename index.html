@@ -75,7 +75,7 @@ footer .logo-img{height:58px}
 .hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px;position:relative}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
 .hero-grid>*{min-width:0}
-.hero h1{font-size:clamp(2.1rem,6.2vw,5.4rem);font-weight:800;margin:1.3rem 0 1.5rem}
+.hero h1{font-size:clamp(2.1rem,4.9vw,4.7rem);font-weight:800;margin:1.3rem 0 1.5rem}
 .rotator{display:inline-block;position:relative;height:1.05em;overflow:hidden;vertical-align:bottom}
 .rotator span{display:block;animation:rot 10s cubic-bezier(.7,0,.3,1) infinite}
 @keyframes rot{0%,16%{transform:translateY(0)}20%,36%{transform:translateY(-100%)}40%,56%{transform:translateY(-200%)}60%,76%{transform:translateY(-300%)}80%,96%{transform:translateY(-400%)}100%{transform:translateY(-500%)}}
@@ -268,13 +268,10 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:60px}
 .wa svg{width:30px;height:30px;fill:#fff}
 
 
-/* ===== INTRO ===== */
-body.intro-on{overflow:hidden}
-#intro{position:fixed;inset:0;z-index:200;background:#0b0a10;overflow:hidden;transition:transform .9s cubic-bezier(.8,0,.2,1)}
-#intro.done{transform:translateY(-100%)}
+/* ===== STORY REEL CSS ===== */
 .sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;opacity:0;animation:scn .78s var(--d) both;pointer-events:none}
-.sc svg{width:min(170px,40vw);height:auto;overflow:visible}
-.sc p{font-family:Syne;font-weight:800;font-size:clamp(2.4rem,8vw,5rem);color:#fff;line-height:1}
+.sc svg{width:min(130px,32vw);height:auto;overflow:visible}
+.sc p{font-family:Syne;font-weight:800;font-size:clamp(2rem,4.2vw,3.2rem);color:#fff;line-height:1}
 .sc p b{color:#ffd23f}
 @keyframes scn{0%{opacity:0;transform:scale(.6) rotate(-4deg)}18%{opacity:1;transform:none}80%{opacity:1;transform:scale(1.03)}100%{opacity:0;transform:scale(1.3)}}
 .i-spin{transform-box:fill-box;transform-origin:center;animation:ispin .9s linear infinite}
@@ -294,10 +291,10 @@ body.intro-on{overflow:hidden}
 .i-coin{animation:iflip .6s 3.25s ease-in-out 2}
 @keyframes iflip{50%{transform:rotateY(180deg)}}
 .fall{position:absolute;top:-60px;width:44px;height:44px;border-radius:50%;background:#ffd23f;border:4px solid #e0a800;color:#111;font-weight:800;display:grid;place-items:center;font-size:1.1rem;animation:ifall .7s var(--fd) ease-in both}
-@keyframes ifall{from{transform:translateY(0) rotate(0)}to{transform:translateY(calc(50vh + 40px)) rotate(200deg);opacity:0}}
+@keyframes ifall{from{transform:translateY(0) rotate(0)}to{transform:translateY(480px) rotate(200deg);opacity:0}}
 .i-yellow{position:absolute;inset:0;background:#fad02c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;clip-path:circle(0% at 50% 50%);animation:iyel .75s 4.05s cubic-bezier(.7,0,.3,1) forwards}
 @keyframes iyel{to{clip-path:circle(150% at 50% 50%)}}
-.i-logo{display:flex;align-items:center;font-family:'Archivo Black',Syne,sans-serif;color:#000;font-size:clamp(3.2rem,12vw,8rem);letter-spacing:-.03em;line-height:1}
+.i-logo{display:flex;align-items:center;font-family:'Archivo Black',Syne,sans-serif;color:#000;font-size:clamp(2.6rem,6.4vw,4.8rem);letter-spacing:-.03em;line-height:1}
 .l1{position:relative;z-index:1;animation:isl .6s 4.55s cubic-bezier(.2,.9,.3,1) both}
 @keyframes isl{from{opacity:0;transform:translateX(-80px)}to{opacity:1;transform:none}}
 .l-co{position:relative;display:inline-flex;align-items:center;justify-content:center;width:1.75em;height:1.75em;margin-left:-.3em}
@@ -307,11 +304,34 @@ body.intro-on{overflow:hidden}
 @keyframes idrop{from{opacity:0;transform:translateY(-1.2em)}to{opacity:1;transform:none}}
 .l4{font-family:Manrope,sans-serif;font-weight:800;font-size:.22em;letter-spacing:.06em;writing-mode:vertical-rl;margin-left:-.1em;animation:ivin .5s 5.65s ease-out both}
 @keyframes ivin{from{opacity:0;transform:rotate(180deg) translateY(-40px)}to{opacity:1;transform:rotate(180deg)}}
-.i-tag{font-family:Syne;font-weight:700;color:#111;font-size:clamp(1rem,2.6vw,1.4rem);animation:isl .6s 5.95s both}
+.i-tag{font-family:Syne;font-weight:700;color:#111;text-align:center;padding:0 1rem;font-size:clamp(.95rem,1.8vw,1.15rem);animation:isl .6s 5.95s both}
 .i-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.08)}
-.i-bar i{display:block;height:100%;width:0;background:#ffd23f;animation:ibar 6.9s linear forwards}
+.i-bar i{display:block;height:100%;width:0;background:#111;animation:ibar 8s linear forwards}
+.i-bar{z-index:2}
 @keyframes ibar{to{width:100%}}
-.i-skip{position:absolute;right:22px;bottom:22px;z-index:3;background:rgba(0,0,0,.35);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:.6rem 1.1rem;font:700 .85rem Manrope,sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
+
+.sec-head .sub{color:var(--muted);font-size:1.05rem;max-width:440px;margin-top:1.2rem}
+.hero-visual .story{position:absolute;inset:30px 0;}
+.story{position:relative;height:460px;border-radius:34px;overflow:hidden}
+/* iOS-style liquid glass */
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 45%,rgba(255,255,255,.08));backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.12),inset 0 0 40px rgba(255,255,255,.05),0 40px 90px -30px rgba(0,0,0,.7)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:4;background:radial-gradient(120% 60% at 20% -10%,rgba(255,255,255,.35),transparent 55%),radial-gradient(80% 40% at 100% 110%,rgba(255,255,255,.12),transparent 60%)}
+.glass .sc p{color:rgba(255,255,255,.18);-webkit-text-stroke:1.5px rgba(255,255,255,.92);text-shadow:0 0 30px rgba(255,255,255,.25)}
+.glass .sc p b{color:rgba(255,210,63,.25);-webkit-text-stroke:1.5px #ffd23f}
+.glass .i-flash{background:rgba(255,255,255,.9)}
+.glass .i-yellow{background:rgba(250,208,44,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.glass .i-logo{color:#000}
+.glow-y{position:absolute;width:260px;height:260px;border-radius:50%;background:#ffb000;filter:blur(60px);opacity:.55;left:-40px;bottom:10px;animation:float 12s ease-in-out infinite}
+.hero-visual .orb{top:42%;left:66%;width:300px;height:300px;filter:blur(8px);opacity:.75}
+.hero-visual .orb::after{display:none}
+body.staff .glow-y{background:#3dc8ff}
+.story-in{position:absolute;inset:0}
+.story .chip{top:38%}
+.story-label{position:absolute;top:16px;left:18px;z-index:3;display:flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:800;letter-spacing:.16em;color:#fff;background:rgba(0,0,0,.45);padding:.4rem .75rem;border-radius:999px;backdrop-filter:blur(6px)}
+.story-label i{width:8px;height:8px;border-radius:50%;background:#ff3b3b;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (max-width:1020px){.hero-visual .story{inset:20px 0}}
+@media (max-width:760px){.hero-visual{height:380px}.hero-visual .story{inset:10px 0;border-radius:26px}.hero-visual .orb{width:180px;height:180px;left:70%}}
 
 /* ===== MODE SWITCH ===== */
 body.staff{--media:linear-gradient(120deg,#3dc8ff,#8f7bff)}
@@ -417,43 +437,6 @@ body:not(.staff) .dcard.m{z-index:4;border-color:rgba(255,210,63,.35)}
 </style>
 </head>
 <body>
-<div id="intro" aria-hidden="true">
-  <div class="sc" style="--d:.1s">
-    <svg viewBox="0 0 140 110" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linejoin="round"><path d="M10 34h28l10-16h44l10 16h28v66H10z"/><circle cx="70" cy="64" r="26"/><g class="i-shutter"><circle cx="70" cy="64" r="13" fill="#ffd23f" stroke="none"/></g><rect x="108" y="44" width="12" height="8" rx="2" fill="#fff" stroke="none"/></svg>
-    <p>Shoot<b>.</b></p>
-  </div>
-  <div class="i-flash"></div>
-  <div class="sc" style="--d:.85s">
-    <svg viewBox="0 0 120 120" fill="none" stroke="#ffd23f" stroke-width="6"><g class="i-spin"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="9" fill="#ffd23f"/><circle cx="60" cy="27" r="11"/><circle cx="91" cy="50" r="11"/><circle cx="79" cy="87" r="11"/><circle cx="41" cy="87" r="11"/><circle cx="29" cy="50" r="11"/></g></svg>
-    <p>Roll<b>.</b></p>
-  </div>
-  <div class="sc" style="--d:1.6s">
-    <svg viewBox="0 0 120 110"><path class="i-heart" fill="#ff4f6d" d="M60 104S8 72 8 36C8 18 22 6 38 6c10 0 18 5 22 13 4-8 12-13 22-13 16 0 30 12 30 30 0 36-52 68-52 68z"/></svg>
-    <span class="chip" style="--x:-170%;--cd:1.8s">+12.4K likes</span>
-    <span class="chip" style="--x:40%;--cd:1.95s">+3.1K shares</span>
-    <span class="chip" style="--x:-60%;--cd:2.1s">+980 followers</span>
-    <p>Go <b>viral.</b></p>
-  </div>
-  <div class="sc" style="--d:2.35s">
-    <svg viewBox="0 0 150 120" fill="none"><rect class="i-bar-r" style="--bd:2.45s" x="8" y="80" width="24" height="34" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.55s" x="44" y="60" width="24" height="54" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.65s" x="80" y="38" width="24" height="76" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.75s" x="116" y="10" width="24" height="104" rx="4" fill="#ffb000"/><path class="i-line" d="M6 70 L50 46 L84 54 L140 4" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <p><b>Grow.</b></p>
-  </div>
-  <div class="sc" style="--d:3.1s">
-    <svg viewBox="0 0 120 120" class="i-coin"><circle cx="60" cy="60" r="54" fill="#ffd23f" stroke="#e0a800" stroke-width="8"/><circle cx="60" cy="60" r="38" fill="none" stroke="#e0a800" stroke-width="3"/><text x="60" y="80" text-anchor="middle" font-family="Archivo Black,Arial Black,sans-serif" font-size="56" fill="#111">$</text></svg>
-    <span class="fall" style="left:22%;--fd:3.2s">$</span><span class="fall" style="left:70%;--fd:3.3s">₹</span><span class="fall" style="left:40%;--fd:3.45s">$</span><span class="fall" style="left:84%;--fd:3.15s">$</span><span class="fall" style="left:10%;--fd:3.4s">₹</span>
-    <p><b>Earn.</b></p>
-  </div>
-  <div class="i-yellow">
-    <div class="i-logo"><span class="l1">Mark</span><span class="l-co"><i class="l2"></i><span class="l3">co</span></span><span class="l4">MEDIA</span></div>
-    <p class="i-tag">Media presence that grows your business.</p>
-  </div>
-  <div class="i-bar"><i></i></div>
-  <button class="i-skip" type="button">Skip intro →</button>
-</div>
-<script>
-(function(){var seen=false;try{seen=sessionStorage.getItem('markcoIntro')==='1'}catch(e){}
-if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){var el=document.getElementById('intro');el.parentNode.removeChild(el);}else{document.body.classList.add('intro-on');}})();
-</script>
 <div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div class="grain"></div>
 
@@ -495,20 +478,11 @@ if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){var el=document
     </div>
     <div class="hero-visual reveal d2">
       <div class="orb"></div>
-            <a href="#media" class="dcard m">
-        <span class="tag">Markco Media</span>
-        <h3>More reach.<br>More leads.</h3>
-        <p>Campaigns built to turn scrollers into customers.</p>
-        <div class="mini-chart"><i style="height:35%"></i><i style="height:50%"></i><i style="height:42%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:82%"></i><i style="height:100%"></i></div>
-      </a>
-      <a href="#staffing" class="dcard s">
-        <span class="tag">Markco Staffing</span>
-        <h3>The right people,<br>ready to work.</h3>
-        <div class="people">
-          <span style="background:#3dc8ff">AK</span><span style="background:#8f7bff">RS</span><span style="background:#fff">PM</span><span style="background:#ffb000">NV</span><span style="background:#7b5cff;color:#fff">+</span>
-        </div>
-        <div class="match"><span class="dot"></span>Candidate matched to role</div>
-      </a>
+      <div class="glow-y"></div>
+      <div class="story glass" role="img" aria-label="Animation: shoot, roll, go viral, grow, earn, then the Markco Media logo">
+        <span class="story-label"><i></i>MARKCO REEL</span>
+        <div class="story-in" id="storyIn"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -556,10 +530,44 @@ if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches){var el=document
 <section id="services">
   <div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow reveal">Markco Media · Our expertise</span>
-      <h2 class="reveal d1">Everything your brand needs to <span class="grad-media">win online.</span></h2></div>
-      <p class="reveal d2">Strategy, creative and performance under one roof, so your brand looks great and the numbers move.</p>
+      <div>
+        <span class="eyebrow reveal">Markco Media · Our expertise</span>
+        <h2 class="reveal d1">Everything your brand needs to <span class="grad-media">win online.</span></h2>
+        <p class="sub reveal d2">Strategy, creative and performance under one roof, so your brand looks great and the numbers move.</p>
+      </div>
     </div>
+    <template id="storyTpl">
+<div class="sc" style="--d:.1s">
+    <svg viewBox="0 0 140 110" fill="none" stroke="#ffd23f" stroke-width="6" stroke-linejoin="round"><path d="M10 34h28l10-16h44l10 16h28v66H10z"/><circle cx="70" cy="64" r="26"/><g class="i-shutter"><circle cx="70" cy="64" r="13" fill="#ffd23f" stroke="none"/></g><rect x="108" y="44" width="12" height="8" rx="2" fill="#fff" stroke="none"/></svg>
+    <p>Shoot<b>.</b></p>
+  </div>
+  <div class="i-flash"></div>
+  <div class="sc" style="--d:.85s">
+    <svg viewBox="0 0 120 120" fill="none" stroke="#ffd23f" stroke-width="6"><g class="i-spin"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="9" fill="#ffd23f"/><circle cx="60" cy="27" r="11"/><circle cx="91" cy="50" r="11"/><circle cx="79" cy="87" r="11"/><circle cx="41" cy="87" r="11"/><circle cx="29" cy="50" r="11"/></g></svg>
+    <p>Roll<b>.</b></p>
+  </div>
+  <div class="sc" style="--d:1.6s">
+    <svg viewBox="0 0 120 110"><path class="i-heart" fill="#ff4f6d" d="M60 104S8 72 8 36C8 18 22 6 38 6c10 0 18 5 22 13 4-8 12-13 22-13 16 0 30 12 30 30 0 36-52 68-52 68z"/></svg>
+    <span class="chip" style="--x:-170%;--cd:1.8s">+12.4K likes</span>
+    <span class="chip" style="--x:40%;--cd:1.95s">+3.1K shares</span>
+    <span class="chip" style="--x:-60%;--cd:2.1s">+980 followers</span>
+    <p>Go <b>viral.</b></p>
+  </div>
+  <div class="sc" style="--d:2.35s">
+    <svg viewBox="0 0 150 120" fill="none"><rect class="i-bar-r" style="--bd:2.45s" x="8" y="80" width="24" height="34" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.55s" x="44" y="60" width="24" height="54" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.65s" x="80" y="38" width="24" height="76" rx="4" fill="#ffd23f"/><rect class="i-bar-r" style="--bd:2.75s" x="116" y="10" width="24" height="104" rx="4" fill="#ffb000"/><path class="i-line" d="M6 70 L50 46 L84 54 L140 4" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p><b>Grow.</b></p>
+  </div>
+  <div class="sc" style="--d:3.1s">
+    <svg viewBox="0 0 120 120" class="i-coin"><circle cx="60" cy="60" r="54" fill="#ffd23f" stroke="#e0a800" stroke-width="8"/><circle cx="60" cy="60" r="38" fill="none" stroke="#e0a800" stroke-width="3"/><text x="60" y="80" text-anchor="middle" font-family="Archivo Black,Arial Black,sans-serif" font-size="56" fill="#111">$</text></svg>
+    <span class="fall" style="left:22%;--fd:3.2s">$</span><span class="fall" style="left:70%;--fd:3.3s">₹</span><span class="fall" style="left:40%;--fd:3.45s">$</span><span class="fall" style="left:84%;--fd:3.15s">$</span><span class="fall" style="left:10%;--fd:3.4s">₹</span>
+    <p><b>Earn.</b></p>
+  </div>
+  <div class="i-yellow">
+    <div class="i-logo"><span class="l1">Mark</span><span class="l-co"><i class="l2"></i><span class="l3">co</span></span><span class="l4">MEDIA</span></div>
+    <p class="i-tag">Media presence that grows your business.</p>
+  </div>
+  <div class="i-bar"><i></i></div>
+    </template>
     <div class="services">
       <div class="svc reveal"><span class="n">01</span>
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
@@ -857,21 +865,15 @@ form.addEventListener('submit', e => {
   location.href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent('Website enquiry: ' + new FormData(form).get('type')) + '&body=' + encodeURIComponent(buildMessage());
 });
 
-/* ===== INTRO ===== */
+/* ===== STORY REEL ===== */
+startReveals();
 (function(){
-  const intro = document.getElementById('intro');
-  if (!intro) { startReveals(); return; }
-  let finished = false;
-  function finish(){
-    if (finished) return; finished = true;
-    try { sessionStorage.setItem('markcoIntro','1'); } catch(e) {}
-    intro.classList.add('done');
-    document.body.classList.remove('intro-on');
-    startReveals();
-    setTimeout(() => intro.remove(), 950);
-  }
-  intro.querySelector('.i-skip').addEventListener('click', finish);
-  setTimeout(finish, 6900);
+  const box = document.getElementById('storyIn'), tpl = document.getElementById('storyTpl');
+  if (!box || !tpl) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { box.innerHTML = tpl.innerHTML; return; }
+  let visible = false, timer = null;
+  function play(){ box.innerHTML = tpl.innerHTML; clearTimeout(timer); timer = setTimeout(() => { visible ? play() : (timer = null); }, 8000); }
+  new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; if (visible && !timer) play(); }), {threshold:.35}).observe(box);
 })();
 
 /* ===== MODE SWITCH ===== */
